@@ -1,3 +1,4 @@
+import { createPortal } from "react-dom";
 import { DndContext, DragOverlay } from "@dnd-kit/core";
 import { SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import DragAndDropIcon from "../icons/DragAndDropIcon";
@@ -65,14 +66,18 @@ const MethodsList = ({
       </div>
 
       {/* Floating copy that follows the pointer while dragging */}
-      <DragOverlay>
-        {draggingId && (
-          <div className="flex flex-row items-center gap-3 py-2.5 pl-4 pr-3 rounded-lg cursor-grabbing bg-background outline-1 outline-stroke">
-            <DragAndDropIcon />
-            <span className="truncate">{draggingId}</span>
-          </div>
-        )}
-      </DragOverlay>
+      {/* Rendered in document.body: inside the sidebar it would be clipped by its overflow*/}
+      {createPortal(
+        <DragOverlay>
+          {draggingId && (
+            <div className="flex flex-row items-center gap-3 py-2.5 pl-4 pr-3 rounded-lg cursor-grabbing bg-background outline-1 outline-stroke font-display text-base-white text-sm lg:text-xs xl:text-sm">
+              <DragAndDropIcon />
+              <span className="truncate">{draggingId}</span>
+            </div>
+          )}
+        </DragOverlay>,
+        document.body
+      )}
     </DndContext>
   );
 };
