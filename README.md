@@ -89,20 +89,13 @@ FastAPI also provides interactive documentation at `http://127.0.0.1:8000/docs`.
 ```
 rekrypt/
 ├── backend/
-│   ├── api/
-│   │   └── main.py          # FastAPI app, methods, and endpoints
-│   ├── requirements.txt
-│   ├── vercel.json          # Deployment configuration
-│   └── .env.example
+│   └── api/                # FastAPI app, methods, and endpoints
 └── frontend/
-    ├── public/              # Fonts, images, and static files
+    ├── public/             # Fonts, images, and static files
     ├── src/
-    │   ├── api/             # Axios client
-    │   ├── components/      # UI components and icons
-    │   ├── sections/        # Main sections (Sidebar, Rekrypt, Aside)
-    │   ├── App.tsx          # App layout and shared state
-    │   └── style.css
-    └── .env.example
+    │   ├── api/            # Axios client
+    │   ├── components/     # UI components and API calls
+    └── └── sections/       # Main sections
 ```
 
 ## 🤝 Contributing
