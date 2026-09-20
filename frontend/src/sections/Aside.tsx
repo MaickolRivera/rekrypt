@@ -1,6 +1,6 @@
 import GithubIcon from "../components/icons/GithubIcon.tsx";
 
-function Sidebar() {
+function Aside() {
   return (
     <aside className="flex-col-reverse hidden h-full pr-8 lg:py-14 pl-7 lg:flex">
       <a
@@ -16,4 +16,4 @@ function Sidebar() {
   );
 }
 
-export default Sidebar;
+export default Aside;

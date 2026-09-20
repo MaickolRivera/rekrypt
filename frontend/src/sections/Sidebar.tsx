@@ -1,5 +1,5 @@
 import { useState } from "react";
-import MethodList from "../api/MethodsList";
+import MethodList from "../components/MethodsList";
 import RemoveIcon from "../components/icons/RemoveIcon";
 import MenuIcon from "../components/icons/MenuIcon";
 

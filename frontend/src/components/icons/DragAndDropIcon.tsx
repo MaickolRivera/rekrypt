@@ -1,6 +1,6 @@
 import React from "react";
 
-const DnDIcon = (props: React.SVGProps<SVGSVGElement>) => (
+const DragAndDropIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     className="w-5.5 h-5.5 text-white"
     aria-hidden="true"
@@ -18,4 +18,4 @@ const DnDIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export default DnDIcon;
+export default DragAndDropIcon;

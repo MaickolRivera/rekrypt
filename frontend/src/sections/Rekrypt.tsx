@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import InputText from "../components/InputText";
 import { axiosAPI } from "../api/axios";
 
-interface KryptSectionProps {
+interface RekryptProps {
   selectedMethods: string[];
 }
 
-function KryptSection({ selectedMethods }: KryptSectionProps) {
+function Rekrypt({ selectedMethods }: RekryptProps) {
   const [inputValue, setInputValue] = useState("Type here to enkrypt");
   const [ouputValue, setOuputValue] = useState("");
   const typingRef = useRef<number | null>(null);
@@ -81,4 +81,4 @@ function KryptSection({ selectedMethods }: KryptSectionProps) {
         </section>
     )
 }
-export default KryptSection;
+export default Rekrypt;

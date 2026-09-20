@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { axiosAPI } from "./axios.ts";
-import DnDIcon from "../components/icons/DnDIcon.tsx";
-import AddIcon from "../components/icons/AddIcon.tsx";
-import RemoveIcon from "../components/icons/RemoveIcon.tsx";
+import { axiosAPI } from "../api/axios.ts";
+import DragAndDropIcon from "./icons/DragAndDropIcon.tsx";
+import AddIcon from "./icons/AddIcon.tsx";
+import RemoveIcon from "./icons/RemoveIcon.tsx";
 import { motion } from "framer-motion";
 
 interface MethodsListProps {
@@ -53,7 +53,7 @@ const MethodsList = ({
               transition={{ duration: 0.45 }}
             >
               <span className="flex-shrink-0">
-                <DnDIcon></DnDIcon>
+                <DragAndDropIcon></DragAndDropIcon>
               </span>
               <span className="truncate">{method}</span>
             </motion.li>

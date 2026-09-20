@@ -97,10 +97,10 @@ rekrypt/
 └── frontend/
     ├── public/              # Fonts, images, and static files
     ├── src/
-    │   ├── api/             # Axios client and API calls
+    │   ├── api/             # Axios client
     │   ├── components/      # UI components and icons
-    │   ├── pages/           # Pages
-    │   ├── sections/        # Main sections (Krypt, Sidebar, Aside)
+    │   ├── sections/        # Main sections (Sidebar, Rekrypt, Aside)
+    │   ├── App.tsx          # App layout and shared state
     │   └── style.css
     └── .env.example
 ```
