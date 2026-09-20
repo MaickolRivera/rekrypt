@@ -33,7 +33,7 @@ function Sidebar({ selectedMethods, onMethodsChange }: SidebarProps) {
       <section
         className={`fixed top-0 left-0 z-30 overflow-x-hidden overflow-y-auto scroll-bar-custom
             bg-sidebar transform transition-transform duration-300 ease-in-out 
-            h-full w-72 lg:w-100 flex flex-col gap-10 lg:gap-8
+            h-full w-72 lg:w-105 flex flex-col gap-10 lg:gap-8
         ${
           isOpen ? "translate-x-0" : "translate-x-[-100%]"
         } lg:translate-x-0 lg:relative`}

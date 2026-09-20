@@ -70,7 +70,7 @@ const MethodsList = ({
       {createPortal(
         <DragOverlay>
           {draggingId && (
-            <div className="flex flex-row items-center gap-3 py-2.5 pl-4 pr-3 rounded-lg cursor-grabbing bg-background outline-1 outline-stroke font-display text-base-white text-sm lg:text-xs xl:text-sm">
+            <div className="flex flex-row items-center gap-3 py-2.5 pl-4 pr-3 rounded-md cursor-grabbing bg-background outline-1 outline-stroke font-display text-base-white text-sm lg:text-xs xl:text-sm">
               <DragAndDropIcon />
               <span className="truncate">{draggingId}</span>
             </div>

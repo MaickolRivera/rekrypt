@@ -23,7 +23,7 @@ export const ActiveItem = ({ method, onToggle }: MethodItemProps) => {
       // style applies the movement while it is being dragged
       ref={setNodeRef}
       style={{ transform: CSS.Transform.toString(transform), transition }}
-      className={`flex flex-row items-center gap-3 py-3.5 lg:py-2.5 pl-3.5 pr-3 w-full rounded-xl cursor-grab hover:bg-background ${
+      className={`flex flex-row items-center gap-3 py-3.5 lg:py-2.5 pl-3.5 pr-3 w-full rounded-md cursor-grab hover:bg-background ${
         isDragging ? "opacity-40" : ""
       }`}
       {...attributes}
@@ -57,7 +57,7 @@ export const AvailableItem = ({ method, onToggle }: MethodItemProps) => {
   return (
     <li
       ref={setNodeRef}
-      className={`flex flex-row items-center gap-3 py-2.5 lg:py-2.5 pl-4 pr-3 rounded-lg cursor-grab hover:bg-background ${
+      className={`flex flex-row items-center gap-3 py-2.5 lg:py-2.5 pl-4 pr-3 rounded-md cursor-grab hover:bg-background ${
         isDragging ? "opacity-40" : ""
       }`}
       onClick={() => onToggle(method)}
