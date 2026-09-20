@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div className="relative flex lg:items-center justify-center w-screen h-screen text-base-white bg-background font-display">
-      <main className="z-10 h-screen w-screen lg:h-[85%] lg:w-[70%] shadow-custom overflow-hidden lg:rounded-3xl">
+      <main className="z-10 h-screen w-screen lg:h-[85%] lg:w-[75%] shadow-custom overflow-hidden lg:rounded-3xl">
         <div className="bg-background flex flex-row h-full w-full">
           
           <Sidebar selectedMethods={selectedMethods} onMethodsChange={setSelectedMethods}/>
