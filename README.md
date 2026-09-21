@@ -92,13 +92,15 @@ rekrypt/
 │   └── api/                # FastAPI app, methods, and endpoints
 └── frontend/
     ├── public/             # Fonts, images, and static files
-    ├── src/
-    │   ├── api/            # Axios client
-    │   ├── components/     # UI components and API calls
-    └── └── sections/       # Main sections
+    └── src/
+        ├── api/            # Axios client
+        ├── components/     # UI components
+        │   ├── icons/      # SVG icon components
+        │   └── methods/    # Methods lists (ACTIVE/AVAILABLE) with drag and drop
+        └── sections/       # Main sections
 ```
 
-## 🤝 Contributing
+## 💜 Contributing
 
 Contributions are welcome! If you'd like to improve Rekrypt or add more encoders or hashing algorithms, feel free to open an issue or submit a pull request.
 
