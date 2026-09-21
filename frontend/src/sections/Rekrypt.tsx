@@ -66,13 +66,13 @@ function Rekrypt({ selectedMethods }: RekryptProps) {
             </div>
             <div className="flex flex-col gap-8 h-full">
                 <InputText
-                    label="> INPUT"
+                    label="INPUT"
                     value={inputValue}
                     placeholder="Type here to enkrypt"
                     onChange={handleChange}
                 ></InputText>
                 <InputText
-                    label="> OUTPUT"
+                    label="OUTPUT"
                     value={ouputValue}
                     placeholder="Waiting..."
                     readOnly

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import CopyIcon from "./icons/CopyIcon";
 import CheckIcon from "./icons/CheckIcon";
 
@@ -19,6 +19,7 @@ interface InputTextProps {
     readOnly = false,
     copyable = false,
   }) => {
+    const id = useId();
     const [copied, setCopied] = useState(false);
 
     const handleCopy = async () => {
@@ -44,9 +45,13 @@ interface InputTextProps {
     };
   
     return (
-      <div className="relative flex flex-col gap-3 p-4.5 border-2 border-stroke rounded-xl h-full">
-        <label className="text-xs font-medium text-subtext">{label}</label>
+      <div className="relative flex flex-col gap-3 p-4.5 border-2 border-stroke rounded-xl h-full focus-within:border-white/40">
+        <label htmlFor={id} className="text-xs font-medium text-subtext">
+          <span aria-hidden="true">&gt; </span>
+          {label}
+        </label>
         <textarea
+          id={id}
           className={`h-full resize-none scroll-bar-custom focus:outline-hidden text-subtext ${
             copyable ? "pr-8" : ""
           }`}

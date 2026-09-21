@@ -2,40 +2,68 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/icon.ico" />
+    <link rel="icon" type="image/x-icon" href="/icon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+    <meta name="theme-color" content="#1c1c1f" />
+
     <title>Rekrypt - Encryption & Hashing Tool</title>
     <meta name="title" content="Rekrypt - Secure Encryption & Hashing Tool">
     <meta
       name="description"
-      content="Rekrypt - Secure your text with advanced encryption algorithms. Encrypt, decrypt and hash text with various secure algorithms."
+      content="Transform text by chaining hashing and encoding algorithms like SHA-256, MD5 and Base64. Choose the methods, set their order and get the result instantly."
     />
     <meta
       name="keywords"
-      content="encryption, hashing, cryptography, security, Rekrypt, rekrypt, recrypt, encrypt, decrypt, secure, AES, RSA, SHA-256, online encryption"
+      content="hashing, encoding, cryptography, text transformation, SHA-256, MD5, Base64, BLAKE2, CRC32, Rekrypt, online hashing tool"
     />
     <meta name="author" content="Maickol Rivera" />
     <meta name="robots" content="index, follow">
-    
+
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Rekrypt">
+    <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://rekrypt.vercel.app/">
     <meta property="og:title" content="Rekrypt - Encryption & Hashing Tool">
-    <meta property="og:description" content="Encrypt and hash text with various secure algorithms using Rekrypt.">
+    <meta property="og:description" content="Chain hashing and encoding algorithms like SHA-256, MD5 and Base64 to transform your text online.">
     <meta property="og:image" content="https://rekrypt.vercel.app/rekrypt-imagen.webp">
+    <meta property="og:image:alt" content="Rekrypt app showing the list of methods and the input and output text fields">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://rekrypt.vercel.app/">
-    <meta property="twitter:title" content="Rekrypt - Encryption & Hashing Tool">
-    <meta property="twitter:description" content="Encrypt and hash text with various secure algorithms using Rekrypt.">
-    <meta property="twitter:image" content="https://rekrypt.vercel.app/rekrypt-imagen.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://rekrypt.vercel.app/">
+    <meta name="twitter:title" content="Rekrypt - Encryption & Hashing Tool">
+    <meta name="twitter:description" content="Chain hashing and encoding algorithms like SHA-256, MD5 and Base64 to transform your text online.">
+    <meta name="twitter:image" content="https://rekrypt.vercel.app/rekrypt-imagen.webp">
+    <meta name="twitter:image:alt" content="Rekrypt app showing the list of methods and the input and output text fields">
 
     <link rel="canonical" href="https://rekrypt.vercel.app/" />
-    
+
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Rekrypt",
+        "url": "https://rekrypt.vercel.app/",
+        "description": "Web app to transform text by chaining hashing and encoding algorithms like SHA-256, MD5 and Base64.",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "Any",
+        "inLanguage": "en",
+        "author": { "@type": "Person", "name": "Maickol Rivera" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <h1>Rekrypt</h1>
+      <p>
+        Transform text by chaining hashing and encoding algorithms like
+        SHA-256, MD5 and Base64. Rekrypt needs JavaScript to work, please
+        enable it in your browser.
+      </p>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

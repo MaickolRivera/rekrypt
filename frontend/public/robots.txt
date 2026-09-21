@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://rekrypt.vercel.app/sitemap.xml

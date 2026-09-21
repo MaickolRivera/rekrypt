@@ -16,7 +16,10 @@ const Wireframe = () => {
   if (!isDesktop) return null;
 
   return (
-    <div className="absolute top-0 left-0 w-full h-full opacity-30">
+    <div
+      aria-hidden="true"
+      className="absolute top-0 left-0 w-full h-full opacity-30"
+    >
       <Canvas>
         <ambientLight intensity={0.1} />
         <WireframeTorus />
