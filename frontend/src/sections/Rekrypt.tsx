@@ -76,6 +76,7 @@ function Rekrypt({ selectedMethods }: RekryptProps) {
                     value={ouputValue}
                     placeholder="Waiting..."
                     readOnly
+                    copyable
                 ></InputText>
             </div>
         </section>
