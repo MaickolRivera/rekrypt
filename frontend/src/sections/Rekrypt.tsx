@@ -64,13 +64,26 @@ function Rekrypt({ selectedMethods }: RekryptProps) {
                 and combine them sequentially to generate an unique encrypted outputs.
                 </p>
             </div>
-            <div className="flex flex-col gap-8 h-full">
+            <div className="flex flex-col h-full">
                 <InputText
                     label="INPUT"
                     value={inputValue}
                     placeholder="Type here to enkrypt"
                     onChange={handleChange}
                 ></InputText>
+                <p className="text-subtext mt-8 mb-2 ml-2">METHOD ORDER</p>
+                <div className="flex flex-row gap-x-3 gap-y-1 mb-3 w-full flex-wrap">
+                  {selectedMethods.map((methodOrder, index) => {
+                    const lastMethod = index === selectedMethods.length - 1;
+                    return (
+                      <div key={methodOrder} className="flex flex-row gap-3 items-center">
+                        <p className="bg-sidebar py-1.5 px-3 rounded-2xl text-subtext
+                        ">{methodOrder}</p>
+                        {!lastMethod && <span> -&gt; </span>}
+                      </div>
+                    );
+                  })}
+                </div>
                 <InputText
                     label="OUTPUT"
                     value={ouputValue}
