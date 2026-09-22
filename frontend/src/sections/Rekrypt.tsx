@@ -58,28 +58,22 @@ function Rekrypt({ selectedMethods }: RekryptProps) {
 
     return(
         <section className="h-full w-full text-sm lg:text-sm
-            flex flex-col py-24 gap-7 px-12 lg:px-10 lg:pr-0 lg:py-9">
+            flex flex-col py-24 gap-4 px-12 lg:px-10 lg:pr-0 lg:py-8">
             <div className="flex flex-col gap-2">
-                <h1 className="font-medium text-base">Welcome to Rekrypt</h1>
-                <p className="text-pretty text-subtext">
-                A text encryption tool that allows users to input text and apply
-                multiple encryption algorithms in a specified order. Users can choose
-                from various hashing algorithms (such as SHA-256, MD5, etc.)
-                and combine them sequentially to generate an unique encrypted outputs.
+                <h1 className="font-medium text-base hidden md:flex">Welcome to Rekrypt</h1>
+                <p className="text-pretty text-subtext w-full">
+                  A text encryption tool that allows users to input text, 
+                  apply multiple encryption algorithms, and combine them 
+                  sequentially to generate a unique encrypted output, 
+                  allowing endless combinations.
                 </p>
             </div>
             <div className="flex flex-col h-full">
-                <InputText
-                    label="INPUT"
-                    value={inputValue}
-                    placeholder="Type here to enkrypt"
-                    onChange={handleChange}
-                ></InputText>
-                <div className="flex flex-row items-center gap-2 mt-5 mb-2">
-                  <p className="text-xs text-subtext ">METHOD ORDER</p>                  
+                <div className="flex flex-row items-center gap-3 mb-2">
+                  <p className="text-xs text-subtext">METHOD ORDER</p>                  
                   <button
                     type="button"
-                    className="flex flex-row items-center gap-1.5 p-2 -mr-2.5 rounded-lg text-xs text-subtext cursor-pointer hover:text-base-white hover:bg-sidebar flex-shrink-0"
+                    className="flex flex-row items-center gap-1.5 px-2 py-1 -mr-2.5 rounded-lg text-xs text-subtext cursor-pointer hover:text-base-white hover:bg-sidebar flex-shrink-0"
                     onClick={() => copyLink(window.location.href)}
                     aria-label={linkCopied ? "Link copied" : "Copy link to this combination"}
                     title={linkCopied ? "Copied!" : "Copy URL"}
@@ -88,7 +82,6 @@ function Rekrypt({ selectedMethods }: RekryptProps) {
                     {linkCopied ? "Copied!" : "Copy URL"}  
                   </button>
                 </div>
-
                 <div className="flex flex-row gap-x-2 gap-y-1 mb-3 w-full flex-wrap">
                   {selectedMethods.map((methodOrder, index) => {
                     const lastMethod = index === selectedMethods.length - 1;
@@ -101,6 +94,12 @@ function Rekrypt({ selectedMethods }: RekryptProps) {
                     );
                   })}
                 </div>
+                <InputText
+                    label="INPUT"
+                    value={inputValue}
+                    placeholder="Type here to enkrypt"
+                    onChange={handleChange}
+                ></InputText>
                 <InputText
                     label="OUTPUT"
                     value={ouputValue}

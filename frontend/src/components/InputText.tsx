@@ -36,7 +36,7 @@ interface InputTextProps {
     };
   
     return (
-      <div className="relative flex flex-col gap-3 p-4.5 border-2 border-stroke rounded-xl h-full focus-within:border-white/40">
+      <div className="relative flex flex-col gap-3 p-4 my-2 border-2 border-stroke rounded-xl h-full focus-within:border-white/40">
         <label htmlFor={id} className="text-xs font-medium text-subtext">
           <span aria-hidden="true">&gt; </span>
           {label}
