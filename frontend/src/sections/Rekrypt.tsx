@@ -71,15 +71,15 @@ function Rekrypt({ selectedMethods }: RekryptProps) {
                     placeholder="Type here to enkrypt"
                     onChange={handleChange}
                 ></InputText>
-                <p className="text-subtext mt-8 mb-2 ml-2">METHOD ORDER</p>
-                <div className="flex flex-row gap-x-3 gap-y-1 mb-3 w-full flex-wrap">
+                <p className="text-xs text-subtext mt-5 mb-2 ml-2">METHOD ORDER</p>
+                <div className="flex flex-row gap-x-2 gap-y-1 mb-3 w-full flex-wrap">
                   {selectedMethods.map((methodOrder, index) => {
                     const lastMethod = index === selectedMethods.length - 1;
                     return (
-                      <div key={methodOrder} className="flex flex-row gap-3 items-center">
-                        <p className="bg-sidebar py-1.5 px-3 rounded-2xl text-subtext
+                      <div key={methodOrder} className="flex flex-row gap-2 items-center">
+                        <p className="bg-sidebar text-xs py-1.5 px-3 rounded-2xl text-subtext
                         ">{methodOrder}</p>
-                        {!lastMethod && <span> -&gt; </span>}
+                        {!lastMethod && <span className="text-subtext text-xs"> -&gt; </span>}
                       </div>
                     );
                   })}
