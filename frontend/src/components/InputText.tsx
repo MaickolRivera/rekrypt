@@ -1,6 +1,7 @@
-import { useId, useState } from "react";
+import { useId } from "react";
 import CopyIcon from "./icons/CopyIcon";
 import CheckIcon from "./icons/CheckIcon";
+import { useCopy } from "../hooks/useCopy";
 
 interface InputTextProps {
     label: string;
@@ -20,17 +21,7 @@ interface InputTextProps {
     copyable = false,
   }) => {
     const id = useId();
-    const [copied, setCopied] = useState(false);
-
-    const handleCopy = async () => {
-      try {
-        await navigator.clipboard.writeText(value);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 1500);
-      } catch (error) {
-        console.log("Error copying text ", error);
-      }
-    };
+    const { copied, copy } = useCopy();
 
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
       const inputValue = event.target.value;
@@ -64,7 +55,7 @@ interface InputTextProps {
           <button
             type="button"
             className="absolute bottom-3 right-3 p-1.5 rounded-md text-subtext cursor-pointer hover:text-base-white hover:bg-stroke disabled:opacity-40 disabled:cursor-default disabled:hover:bg-transparent disabled:hover:text-subtext"
-            onClick={handleCopy}
+            onClick={() => copy(value)}
             disabled={!value}
             aria-label={copied ? "Copied" : "Copy to clipboard"}
             title={copied ? "Copied!" : "Copy"}

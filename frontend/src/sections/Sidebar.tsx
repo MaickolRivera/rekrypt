@@ -4,11 +4,12 @@ import RemoveIcon from "../components/icons/RemoveIcon";
 import MenuIcon from "../components/icons/MenuIcon";
 
 interface SidebarProps {
+  methods: string[];
   selectedMethods: string[];
   onMethodsChange: (methods: string[]) => void;
 }
 
-function Sidebar({ selectedMethods, onMethodsChange }: SidebarProps) {
+function Sidebar({ methods, selectedMethods, onMethodsChange }: SidebarProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -62,6 +63,7 @@ function Sidebar({ selectedMethods, onMethodsChange }: SidebarProps) {
         </div>
 
         <MethodList
+          methods={methods}
           selectedMethods={selectedMethods}
           onMethodsChange={onMethodsChange}
         />

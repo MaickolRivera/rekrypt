@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import InputText from "../components/InputText";
+import CheckIcon from "../components/icons/CheckIcon";
 import { axiosAPI } from "../api/axios";
+import { useCopy } from "../hooks/useCopy";
+import CopyIcon from "../components/icons/CopyIcon";
 
 interface RekryptProps {
   selectedMethods: string[];
@@ -9,6 +12,7 @@ interface RekryptProps {
 function Rekrypt({ selectedMethods }: RekryptProps) {
   const [inputValue, setInputValue] = useState("Type here to enkrypt");
   const [ouputValue, setOuputValue] = useState("");
+  const { copied: linkCopied, copy: copyLink } = useCopy();
   const typingRef = useRef<number | null>(null);
 
   const typeText = (text: string) => {
@@ -71,7 +75,20 @@ function Rekrypt({ selectedMethods }: RekryptProps) {
                     placeholder="Type here to enkrypt"
                     onChange={handleChange}
                 ></InputText>
-                <p className="text-xs text-subtext mt-5 mb-2 ml-2">METHOD ORDER</p>
+                <div className="flex flex-row items-center gap-2 mt-5 mb-2">
+                  <p className="text-xs text-subtext ">METHOD ORDER</p>                  
+                  <button
+                    type="button"
+                    className="flex flex-row items-center gap-1.5 p-2 -mr-2.5 rounded-lg text-xs text-subtext cursor-pointer hover:text-base-white hover:bg-sidebar flex-shrink-0"
+                    onClick={() => copyLink(window.location.href)}
+                    aria-label={linkCopied ? "Link copied" : "Copy link to this combination"}
+                    title={linkCopied ? "Copied!" : "Copy URL"}
+                  >
+                    {linkCopied ? <CheckIcon className="w-4 h-4" /> : <CopyIcon className="w-4 h-4" />}
+                    {linkCopied ? "Copied!" : "Copy URL"}  
+                  </button>
+                </div>
+
                 <div className="flex flex-row gap-x-2 gap-y-1 mb-3 w-full flex-wrap">
                   {selectedMethods.map((methodOrder, index) => {
                     const lastMethod = index === selectedMethods.length - 1;

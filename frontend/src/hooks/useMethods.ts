@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { axiosAPI } from "../../api/axios";
+import { axiosAPI } from "../api/axios";
 
 // Loads the list of supported methods from the backend (GET /methods)
 export const useMethods = () => {

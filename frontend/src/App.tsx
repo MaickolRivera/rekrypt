@@ -1,26 +1,30 @@
-import { lazy, Suspense, useState } from "react";
+import { lazy, Suspense } from "react";
 import BlurCircle from "./components/BlurCircle";
 import Sidebar from "./sections/Sidebar";
 import Rekrypt from "./sections/Rekrypt";
 import GithubIcon from "./components/icons/GithubIcon";
+import { useMethods } from "./hooks/useMethods";
+import { useUrlSyncedMethods } from "./hooks/useUrlSyncedMethods";
 
 const Wireframe = lazy(() => import("./components/Wireframe"));
 
 function App() {
-  const [selectedMethods, setSelectedMethods] = useState<string[]>([
-    "SHA_256",
-    "BASE 64",
-  ]);
+  const methods = useMethods();
+  const [selectedMethods, setSelectedMethods] = useUrlSyncedMethods(methods);
 
   return (
     <div className="relative flex lg:items-center justify-center w-screen h-screen text-base-white bg-background font-display">
       <main className="z-10 h-screen w-screen lg:h-[85%] lg:w-[75%] shadow-custom overflow-hidden lg:rounded-3xl">
         <div className="bg-background flex flex-row h-full w-full">
-          
-          <Sidebar selectedMethods={selectedMethods} onMethodsChange={setSelectedMethods}/>
+
+          <Sidebar
+            methods={methods}
+            selectedMethods={selectedMethods}
+            onMethodsChange={setSelectedMethods}
+          />
 
           <Rekrypt selectedMethods={selectedMethods} />
-          
+
           <aside
             aria-label="Project links"
             className="flex-col-reverse hidden h-full pr-8 lg:py-13 pl-7 lg:flex"

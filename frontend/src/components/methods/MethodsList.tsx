@@ -4,19 +4,21 @@ import { SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable"
 import DragAndDropIcon from "../icons/DragAndDropIcon";
 import DropZone from "./DropZone";
 import { ActiveItem, AvailableItem } from "./MethodItems";
-import { useMethods } from "./useMethods";
 import { ACTIVE, AVAILABLE, useMethodsDnd } from "./useMethodsDnd";
 
 interface MethodsListProps {
+  // Full list of methods the backend supports, loaded once by App so it can
+  // also validate methods coming from the URL (see App.tsx)
+  methods: string[];
   selectedMethods: string[];
   onMethodsChange: (selectedMethods: string[]) => void;
 }
 
 const MethodsList = ({
+  methods,
   selectedMethods,
   onMethodsChange,
 }: MethodsListProps) => {
-  const methods = useMethods();
   // Drag logic lives in the hook; see useMethodsDnd.ts
   const { dndProps, draggingId, isDropTarget } = useMethodsDnd(
     selectedMethods,
