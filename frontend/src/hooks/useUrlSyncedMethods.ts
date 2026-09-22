@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const PARAM = "m";
-const DEFAULT_METHODS = ["SHA_256", "BASE 64"];
+const DEFAULT_METHODS = ["SHA_256", "BASE_64"];
 
 const readFromUrl = (): string[] => {
   const raw = new URLSearchParams(window.location.search).get(PARAM);

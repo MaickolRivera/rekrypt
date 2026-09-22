@@ -4,6 +4,9 @@ from pydantic import BaseModel, field_validator
 import binascii
 import hashlib
 import os
+import base64
+from urllib.parse import quote
+import codecs
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -45,14 +48,34 @@ METHODS = {
     "SHA_256": lambda text: hashlib.sha256(text.encode()).hexdigest(),
     "SHA_384": lambda text: hashlib.sha384(text.encode()).hexdigest(),
     "SHA_512": lambda text: hashlib.sha512(text.encode()).hexdigest(),
+    "SHA3_224": lambda text: hashlib.sha3_224(text.encode()).hexdigest(),
+    "SHA3_256": lambda text: hashlib.sha3_256(text.encode()).hexdigest(),
+    "SHA3_384": lambda text: hashlib.sha3_384(text.encode()).hexdigest(),
+    "SHA3_512": lambda text: hashlib.sha3_512(text.encode()).hexdigest(),
+
+    "SHAKE_128": lambda text: hashlib.shake_128(text.encode()).hexdigest(16),
+    "SHAKE_256": lambda text: hashlib.shake_256(text.encode()).hexdigest(32),
+
     "BLAKE2S": lambda text: hashlib.blake2s(text.encode()).hexdigest(),
     "BLAKE2B": lambda text: hashlib.blake2b(text.encode()).hexdigest(),
+
     "MD5": lambda text: hashlib.md5(text.encode()).hexdigest(),
+
+    "ROT_13": lambda text: codecs.encode(text, "rot_13"),
+
     "HEX": lambda text: binascii.hexlify(text.encode()).decode(),
-    "BASE 64": lambda text: binascii.b2a_base64(text.encode()).decode().strip(),
+    "BASE_16": lambda text: base64.b16encode(text.encode()).decode(),
+    "BASE_32": lambda text: base64.b32encode(text.encode()).decode(),
+    "BASE_64": lambda text: base64.b64encode(text.encode()).decode(),
+    "BASE_85": lambda text: base64.b85encode(text.encode()).decode(),
+
     "BINARY": lambda text: ''.join(format(ord(char), '08b') for char in text),
+
     "CRC32": lambda text: format(binascii.crc32(text.encode()), '08x'),
     "UUNCODE": uuencode,
+
+    "URL": lambda text: quote(text),
+
     "REVERSE": lambda text: text[::-1],
 }
 
