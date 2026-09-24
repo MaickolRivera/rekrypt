@@ -10,7 +10,7 @@ interface MethodSearchProps {
 // row treatment as MethodCategory (padding, radius, subtext/hover colors) so
 // it reads as part of the same list, just without a disclosure chevron.
 const MethodSearch = ({ value, onChange }: MethodSearchProps) => (
-  <li className="flex flex-row items-center w-full gap-2 py-2 pl-1 pr-2 rounded-md border-1 border-stroke text-subtext focus-within:text-base-white focus-within:bg-background">
+  <li className="flex flex-row items-center w-full gap-3 py-2 px-3 rounded-md border-1 border-stroke text-subtext focus-within:text-base-white focus-within:bg-background">
     <SearchIcon className="flex-shrink-0" />
     <input
       type="text"

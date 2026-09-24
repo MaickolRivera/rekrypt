@@ -26,7 +26,7 @@ export const ActiveItem = ({ method, onToggle, isFinal = false }: ActiveItemProp
       ref={setNodeRef}
       style={{ transform: CSS.Transform.toString(transform), transition }}
       title={isFinal ? `${method} — produces the final output` : undefined}
-      className={`flex flex-row items-center gap-3 py-3.5 lg:py-2.5 pl-3.5 pr-3 w-full rounded-md cursor-grab hover:bg-background ${
+      className={`flex flex-row items-center gap-2 py-3.5 lg:py-2.5 pl-3.5 pr-3 w-full rounded-md cursor-grab hover:bg-background ${
         isFinal ? "outline-1 outline-accent/40 bg-accent/10" : ""
       } ${isDragging ? "opacity-40" : ""}`}
       {...attributes}
@@ -38,7 +38,7 @@ export const ActiveItem = ({ method, onToggle, isFinal = false }: ActiveItemProp
       <span className="flex-1 truncate">{method}</span>
       {isFinal && (
         <span className="flex-shrink-0 px-1.5 py-0.5 text-[10px] font-medium tracking-wide uppercase rounded text-accent bg-accent/15">
-          Result
+          TOP
         </span>
       )}
       <button
@@ -65,7 +65,7 @@ export const AvailableItem = ({ method, onToggle }: MethodItemProps) => {
   return (
     <li
       ref={setNodeRef}
-      className={`flex flex-row items-center gap-3 py-2.5 lg:py-2.5 pl-4 pr-3 rounded-md cursor-grab hover:bg-background ${
+      className={`flex flex-row items-center gap-4 py-2.5 lg:py-2.5 px-4 rounded-md cursor-grab hover:bg-background ${
         isDragging ? "opacity-40" : ""
       }`}
       onClick={() => onToggle(method)}

@@ -2,7 +2,7 @@ import React from "react";
 
 const AddIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
-    className="w-5 h-5 text-subtext"
+    className="w-4 h-4 text-subtext"
     aria-hidden="true"
     fill="none"
     viewBox="0 0 24 24"
