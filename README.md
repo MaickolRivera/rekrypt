@@ -10,10 +10,15 @@ Web app to **transform text by applying multiple encoders and hashing algorithms
 
 ## ✨ Features
 
-- **Method chaining**: the output of each method is the input of the next one.
-- **Multiple algorithms**: SHA-1, SHA-224, SHA-256, SHA-384, SHA-512, BLAKE2s, BLAKE2b, MD5, CRC32, Hex, Base64, Binary, UUencode, and Reverse.
-- **Customizable order**: add, remove, and reorder methods to change the result.
-- **Real-time transformation** with a live preview of the result.
+- **Method chaining:** the output of each method is the input of the next one.
+- **Multiple algorithms:** SHA-1, SHA-256, SHA-512, BLAKE2s, BLAKE2b, MD5, CRC32, Hex, Base64, Binary, UUencode, and more!.
+- **Organized by category:** available methods are grouped into collapsible sections (Hashing, Encoding, Checksums, Ciphers & Text).
+- **Method search:** filter the available methods as you type; matching categories open automatically.
+- **Customizable order:** add, remove, and reorder methods (click or drag and drop) to change the result.
+- **Final method indicator:** the last method in the chain is highlighted with a "Result" badge, so it's clear which one produces the output.
+- **Shareable chains:** the URL updates with the current combination of methods, so you can bookmark it or share it and the same chain loads automatically.
+- **Real-time transformation:** live preview of the result as you change the chain.
+- **Modern, responsive UI:** built with Tailwind CSS and React Three Fiber.
 
 ## 🛠️ Tech Stack
 
@@ -96,8 +101,9 @@ rekrypt/
         ├── api/            # Axios client
         ├── components/     # UI components
         │   ├── icons/      # SVG icon components
-        │   └── methods/    # Methods lists (ACTIVE/AVAILABLE) with drag and drop
-        └── sections/       # Main sections
+        │   └── methods/    # ACTIVE/AVAILABLE lists: drag and drop, categories, search
+        ├── hooks/          # Custom React hooks
+        └── sections/       # Main page sections
 ```
 
 ## 💜 Contributing
@@ -106,4 +112,4 @@ Contributions are welcome! If you'd like to improve Rekrypt or add more encoders
 
 ---
 
-Made with ❤️ by [Maickol Rivera](https://github.com/MaickolRivera)
+Made with ♥ by [Maickol Rivera](https://github.com/MaickolRivera)

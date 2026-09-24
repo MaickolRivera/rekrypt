@@ -42,8 +42,8 @@ function App() {
         </div>
 
         {/* */}
-        <BlurCircle x={150} y={550} size={420} color="rgba(140, 47, 173, 0.28)"/>
-        <BlurCircle x={1100} y={10} size={420} color="rgba(140, 47, 173, 0.28)"/>
+        <BlurCircle x={200} y={50} size={420} color="rgba(140, 47, 173, 0.28)"/>
+        <BlurCircle x={1400} y={700} size={420} color="rgba(140, 47, 173, 0.28)"/>
       </main>
 
       {/* */}
