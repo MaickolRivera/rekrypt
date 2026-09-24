@@ -12,6 +12,13 @@ const CATEGORIES: { name: string; match: RegExp }[] = [
 
 const OTHER = "Other";
 
+// Loose match for the search box: lowercase and strip separators, so
+// searching "sha256" still finds "SHA_256".
+const normalize = (value: string) => value.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+export const matchesQuery = (method: string, query: string): boolean =>
+  normalize(method).includes(normalize(query));
+
 export const groupByCategory = (methods:string[]): MethodCategory[] =>{
   const groups = new Map<string, string[]>();
 

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createPortal } from "react-dom";
 import { DndContext, DragOverlay } from "@dnd-kit/core";
 import { SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
@@ -5,7 +6,8 @@ import DragAndDropIcon from "../icons/DragAndDropIcon";
 import DropZone from "./DropZone";
 import { ActiveItem } from "./MethodItems";
 import MethodCategory from "./MethodCategory";
-import { groupByCategory } from "./methodCategories";
+import MethodSearch from "./MethodSearch";
+import { groupByCategory, matchesQuery } from "./methodCategories";
 import { ACTIVE, AVAILABLE, useMethodsDnd } from "./useMethodsDnd";
 
 interface MethodsListProps {
@@ -27,8 +29,12 @@ const MethodsList = ({
     onMethodsChange
   );
 
+  const [query, setQuery] = useState("");
+
   const availableMethods = methods.filter((m) => !selectedMethods.includes(m));
-  const availableCategories = groupByCategory(availableMethods);
+  const filteredAvailable = availableMethods.filter((m) => matchesQuery(m, query));
+  const availableCategories = groupByCategory(filteredAvailable);
+  const isSearching = query.trim().length > 0;
 
   const finalMethod = selectedMethods[selectedMethods.length - 1];
 
@@ -67,14 +73,21 @@ const MethodsList = ({
           title="AVAILABLE"
           highlighted={isDropTarget(AVAILABLE)}
         >
-          {availableCategories.map(({ name, methods: categoryMethods }) => (
-            <MethodCategory
-              key={name}
-              name={name}
-              methods={categoryMethods}
-              onToggle={addMethod}
-            />
-          ))}
+          <MethodSearch value={query} onChange={setQuery} />
+
+          {isSearching && availableCategories.length === 0 ? (
+            <li className="py-4 pl-4 text-subtext">No methods found</li>
+          ) : (
+            availableCategories.map(({ name, methods: categoryMethods }) => (
+              <MethodCategory
+                key={name}
+                name={name}
+                methods={categoryMethods}
+                onToggle={addMethod}
+                forceOpen={isSearching}
+              />
+            ))
+          )}
         </DropZone>
       </div>
 
