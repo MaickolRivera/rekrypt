@@ -45,7 +45,7 @@ const MethodsList = ({
             {selectedMethods.length === 0 ? (
               <li className="py-4 pl-4 text-subtext">No methods selected</li>
             ) : (
-              selectedMethods.map((method) => (
+              [...selectedMethods].reverse().map((method) => (
                 <ActiveItem
                   key={method}
                   method={method}
