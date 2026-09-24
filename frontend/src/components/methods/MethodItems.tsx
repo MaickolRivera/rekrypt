@@ -11,9 +11,11 @@ interface MethodItemProps {
   onToggle: (method: string) => void;
 }
 
-// Item of the ACTIVE list. It is "sortable": it can be dragged and it also
-// makes room for other items, so it uses useSortable.
-export const ActiveItem = ({ method, onToggle }: MethodItemProps) => {
+interface ActiveItemProps extends MethodItemProps {
+  isFinal?: boolean;
+}
+
+export const ActiveItem = ({ method, onToggle, isFinal = false }: ActiveItemProps) => {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } =
     useSortable({ id: method });
 
@@ -23,9 +25,10 @@ export const ActiveItem = ({ method, onToggle }: MethodItemProps) => {
       // style applies the movement while it is being dragged
       ref={setNodeRef}
       style={{ transform: CSS.Transform.toString(transform), transition }}
+      title={isFinal ? `${method} — produces the final output` : undefined}
       className={`flex flex-row items-center gap-3 py-3.5 lg:py-2.5 pl-3.5 pr-3 w-full rounded-md cursor-grab hover:bg-background ${
-        isDragging ? "opacity-40" : ""
-      }`}
+        isFinal ? "outline-1 outline-accent/40 bg-accent/10" : ""
+      } ${isDragging ? "opacity-40" : ""}`}
       {...attributes}
       {...listeners}
     >
@@ -33,6 +36,11 @@ export const ActiveItem = ({ method, onToggle }: MethodItemProps) => {
         <DragAndDropIcon />
       </span>
       <span className="flex-1 truncate">{method}</span>
+      {isFinal && (
+        <span className="flex-shrink-0 px-1.5 py-0.5 text-[10px] font-medium tracking-wide uppercase rounded text-accent bg-accent/15">
+          Result
+        </span>
+      )}
       <button
         type="button"
         className="flex-shrink-0 cursor-pointer"

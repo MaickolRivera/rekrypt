@@ -3,7 +3,9 @@ import { DndContext, DragOverlay } from "@dnd-kit/core";
 import { SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import DragAndDropIcon from "../icons/DragAndDropIcon";
 import DropZone from "./DropZone";
-import { ActiveItem, AvailableItem } from "./MethodItems";
+import { ActiveItem } from "./MethodItems";
+import MethodCategory from "./MethodCategory";
+import { groupByCategory } from "./methodCategories";
 import { ACTIVE, AVAILABLE, useMethodsDnd } from "./useMethodsDnd";
 
 interface MethodsListProps {
@@ -26,6 +28,9 @@ const MethodsList = ({
   );
 
   const availableMethods = methods.filter((m) => !selectedMethods.includes(m));
+  const availableCategories = groupByCategory(availableMethods);
+
+  const finalMethod = selectedMethods[selectedMethods.length - 1];
 
   const addMethod = (method: string) =>
     onMethodsChange([...selectedMethods, method]);
@@ -50,6 +55,7 @@ const MethodsList = ({
                   key={method}
                   method={method}
                   onToggle={removeMethod}
+                  isFinal={method === finalMethod}
                 />
               ))
             )}
@@ -61,8 +67,13 @@ const MethodsList = ({
           title="AVAILABLE"
           highlighted={isDropTarget(AVAILABLE)}
         >
-          {availableMethods.map((method) => (
-            <AvailableItem key={method} method={method} onToggle={addMethod} />
+          {availableCategories.map(({ name, methods: categoryMethods }) => (
+            <MethodCategory
+              key={name}
+              name={name}
+              methods={categoryMethods}
+              onToggle={addMethod}
+            />
           ))}
         </DropZone>
       </div>
