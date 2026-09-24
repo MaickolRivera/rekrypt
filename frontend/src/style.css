@@ -4,6 +4,8 @@
   --color-sidebar: #18181c;
   --color-stroke: #302d33;
   --color-accent: #8c2fad;
+  /* Accent for text on dark backgrounds: #8c2fad fails WCAG AA there */
+  --color-accent-light: #c77ee8;
   --text-color-base-white: #ffffff;
   --text-color-subtext: #aaa;
   --font-display: "Rubik", "sans-serif";

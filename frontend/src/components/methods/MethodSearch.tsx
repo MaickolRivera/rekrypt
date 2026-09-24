@@ -23,7 +23,7 @@ const MethodSearch = ({ value, onChange }: MethodSearchProps) => (
     {value && (
       <button
         type="button"
-        className="flex-shrink-0 cursor-pointer text-subtext hover:text-base-white"
+        className="flex-shrink-0 p-1.5 -m-1.5 rounded-md cursor-pointer text-subtext hover:text-base-white"
         aria-label="Clear search"
         onClick={() => onChange("")}
       >
